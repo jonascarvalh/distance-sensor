@@ -2,9 +2,6 @@
 #include "include/control_wifi.h"
 
 #include <string.h>
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "freertos/event_groups.h"
 #include "esp_system.h"
 #include "esp_wifi.h"
 #include "esp_event.h"
@@ -12,7 +9,7 @@
 
 #include "../../config.h"
 #include "../control_led/include/control_led.h"
-// #include "..\control_mqtt\include\control_mqtt.h"
+#include "../control_mqtt/include/control_mqtt.h"
 
 #include "lwip/err.h"
 #include "lwip/sys.h"
@@ -43,7 +40,7 @@ static esp_err_t event_handler(void *ctx, system_event_t *event) {
 
 		case SYSTEM_EVENT_STA_GOT_IP:
 			xEventGroupSetBits(wifi_event_group, CONNECTED_BIT);
-			// mqtt_app_start();
+			mqtt_app_start();
 			break;
 
 		case SYSTEM_EVENT_STA_DISCONNECTED:
