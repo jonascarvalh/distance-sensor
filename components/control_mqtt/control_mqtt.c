@@ -19,7 +19,7 @@
 static const char *TAG = "MQTT_SENSOR";
 
 uint32_t MQTT_STATUS_CONNECTED = 0;
-info_count_t info_count_click;
+info_sensor_t info_sensor;
 info_led_t info_status_led;
 bool status_led = false;
 
@@ -97,14 +97,15 @@ void mqtt_app_start(void) {
 void vTaskPublisher(void *pvParameter) {
     while (true) {
         if(MQTT_STATUS_CONNECTED) {
-            // xQueueReceive( xQueueClicks, &info_count_click, portMAX_DELAY);
+            xQueueReceive( xQueueSensor, &info_sensor, portMAX_DELAY);
 
-            // int count = info_count_click.clicks;
-            char *message = "OI";
-            // sprintf(message, "%d", count);
+            int measure = info_sensor.measure;
+            char message[2];
+            sprintf(message, "%d", measure);
+            // printf("\nDistance Received: %s\n", message);
 
             esp_mqtt_client_publish(client, TOPIC1, message, 0, 0, 0);
-            vTaskDelay(1000 / portTICK_PERIOD_MS);
+            vTaskDelay(10 / portTICK_PERIOD_MS);
         }
         vTaskDelay(10 / portTICK_PERIOD_MS);
     }

@@ -9,6 +9,8 @@
 #define TRIGGER_GPIO 26
 #define ECHO_GPIO 25
 
+info_sensor_t info_sensor;
+
 void vTaskUltrasonic(void *pvParameters) {
     ultrasonic_sensor_t sensor = {
         .trigger_pin = TRIGGER_GPIO,
@@ -38,9 +40,13 @@ void vTaskUltrasonic(void *pvParameters) {
             }
         } else {
             // printf("Distance: %0.04f cm\n", distance*100);
-            printf("Distance: %d\n", distance);
 
+            info_sensor.measure = distance;
+            // printf("Distance Sent: %d", info_sensor.measure);
+
+            xQueueSend( xQueueSensor, &info_sensor, 10);
+            vTaskDelay( 490 / portTICK_PERIOD_MS );
         }
-        vTaskDelay( 500 / portTICK_PERIOD_MS );
+        vTaskDelay( 10 / portTICK_PERIOD_MS );
     }
 }
