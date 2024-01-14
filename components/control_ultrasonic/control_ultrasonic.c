@@ -1,9 +1,6 @@
-#include "esp_err.h"
-#include "locale.h"
-
-#include "../../config.h"
 #include "include/control_ultrasonic.h"
 #include "../ultrasonic/ultrasonic.h"
+#include "../../config.h"
 
 #define MAX_DISTANCE_CM 400
 #define TRIGGER_GPIO 26

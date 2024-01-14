@@ -1,11 +1,5 @@
-#include <stdio.h>
 #include "include/control_wifi.h"
-
-#include <string.h>
-#include "esp_system.h"
 #include "esp_wifi.h"
-#include "esp_event.h"
-#include "esp_log.h"
 
 #include "../../config.h"
 #include "../control_led/include/control_led.h"
