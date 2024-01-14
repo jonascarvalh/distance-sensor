@@ -20,5 +20,7 @@
         "stdint.h": "c",
         "control_wifi.h": "c"
     },
-    "idf.adapterTargetName": "esp32"
+    "idf.adapterTargetName": "esp32",
+    "idf.flashType": "UART",
+    "idf.portWin": "COM3"
 }

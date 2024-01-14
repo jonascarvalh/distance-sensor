@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "esp_log.h"
-
+#include "nvs_flash.h"
 #include "../config.h"
 #include "../components/control_led/include/control_led.h"
 #include "../components/control_wifi/include/control_wifi.h"
@@ -18,6 +18,9 @@ void app_main(void) {
 }
 
 void init_app(void) {
+    // initialize nvs, else wifi don't works
+    ESP_ERROR_CHECK(nvs_flash_init());
+
     initWifi();
     xQueueSwitch = xQueueCreate( 5, sizeof(info_led) );
 }
