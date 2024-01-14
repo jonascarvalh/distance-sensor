@@ -3,12 +3,19 @@
 
 #include <stdio.h>
 #include <stdbool.h>
+
+#include "esp_err.h"
+#include "esp_event.h"
+#include "esp_log.h"
+
+#include "locale.h"
+#include "driver/gpio.h"
+
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "freertos/queue.h"
 #include "freertos/semphr.h"
 #include "freertos/event_groups.h"
-#include "driver/gpio.h"
 
 #define CORE_0 0
 #define CORE_1 1
