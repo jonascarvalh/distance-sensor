@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "gpio.h": "c",
+        "sdkconfig.h": "c",
+        "esp_intr_alloc.h": "c",
+        "esp_types.h": "c",
+        "gpio_periph.h": "c",
+        "soc_caps.h": "c",
+        "esp_bit_defs.h": "c",
+        "esp_wifi.h": "c",
+        "esp_wifi_types.h": "c",
+        "esp_wifi_types_private.h": "c",
+        "esp_event.h": "c",
+        "esp_event_legacy.h": "c",
+        "esp_netif.h": "c",
+        "esp_netif_ip_addr.h": "c",
+        "endian.h": "c",
+        "stdbool.h": "c",
+        "queue.h": "c",
+        "stdint.h": "c",
+        "control_wifi.h": "c"
+    },
+    "idf.adapterTargetName": "esp32"
+}
