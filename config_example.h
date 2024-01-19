@@ -23,19 +23,19 @@
 #define PIN_LED 18
 #define PIN_LED_WIFI 2
 
-#define WIFI_SSID ""
-#define WIFI_PASS ""
+#define WIFI_SSID "your wifi ssid"
+#define WIFI_PASS "your wifi password"
 
-#define MQTT_URI   "mqtt://ip:1883"
+#define MQTT_URI   "mqtt://your mqtt ip:1883"
 #define MQTT_USER  "your mqtt user"
-#define MQTT_PASS  "your mqtt pass"
+#define MQTT_PASS  "your mqtt password"
 
 #define MQTT_CLIID "grupo2"
 
 #define TOPIC1 "/engcomp/sensor"
 
 extern QueueHandle_t xQueueSwitch;
-extern QueueHandle_t xQueueClicks;
+extern QueueHandle_t xQueueSensor;
 
 typedef struct {
     int led;
@@ -43,10 +43,10 @@ typedef struct {
 } info_led_t;
 
 typedef struct {
-    int clicks;
-} info_count_t;
+    int measure;
+} info_sensor_t;
 
 extern info_led_t info_led;
-extern info_count_t info_count;
+extern info_sensor_t info_sensor;
 
 #endif
