@@ -2,7 +2,7 @@
 #include "../ultrasonic/ultrasonic.h"
 #include "../../config.h"
 
-#define MAX_DISTANCE_CM 400
+#define MAX_DISTANCE_CM 250
 #define TRIGGER_GPIO 26
 #define ECHO_GPIO 25
 
@@ -18,7 +18,8 @@ void vTaskUltrasonic(void *pvParameters) {
 
     while(true){
         uint32_t distance;
-        esp_err_t res = ultrasonic_measure_cm(&sensor, MAX_DISTANCE_CM, &distance);
+        uint32_t time;
+        esp_err_t res = ultrasonic_measure_cm(&sensor, MAX_DISTANCE_CM, &distance, &time);
 
         if (res != ESP_OK) {
             printf("[ERRO %d] - ", res);
@@ -35,12 +36,11 @@ void vTaskUltrasonic(void *pvParameters) {
                 default:
                 printf("%s\n", esp_err_to_name(res));
             }
-        } else {
-            // printf("Distance: %0.04f cm\n", distance*100);
-
+        } 
+        if (res == ESP_OK) {
             info_sensor.measure = distance;
+            printf("Time: %d\n", time);
             // printf("Distance Sent: %d", info_sensor.measure);
-
             xQueueSend( xQueueSensor, &info_sensor, 10);
             vTaskDelay( 490 / portTICK_PERIOD_MS );
         }

@@ -95,7 +95,7 @@ void vTaskPublisher(void *pvParameter) {
             // printf("\nDistance Received: %s\n", message);
 
             esp_mqtt_client_publish(client, TOPIC1, message, 0, 0, 0);
-            vTaskDelay(10 / portTICK_PERIOD_MS);
+            vTaskDelay(490 / portTICK_PERIOD_MS);
         }
         vTaskDelay(10 / portTICK_PERIOD_MS);
     }
