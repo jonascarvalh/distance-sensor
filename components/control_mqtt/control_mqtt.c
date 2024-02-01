@@ -90,11 +90,21 @@ void vTaskPublisher(void *pvParameter) {
             xQueueReceive( xQueueSensor, &info_sensor, portMAX_DELAY);
 
             int measure = info_sensor.measure;
-            char message[2];
-            sprintf(message, "%d", measure);
+            int time    = info_sensor.time;
+            // char message[2];
+            // sprintf(message, "%d", measure);
             // printf("\nDistance Received: %s\n", message);
 
-            esp_mqtt_client_publish(client, TOPIC1, message, 0, 0, 0);
+            // Necessary size to string
+            int required_size = snprintf(NULL, 0, "{\"measure\": %d, \"time\": %d}", measure, time);
+
+            // Alocate space to string
+            char *json_string = (char *)malloc(required_size + 1);
+
+            // Create Json
+            snprintf(json_string, required_size + 1, "{\"measure\": %d, \"time\": %d}", measure, time);
+
+            esp_mqtt_client_publish(client, TOPIC1, json_string, 0, 0, 0);
             vTaskDelay(490 / portTICK_PERIOD_MS);
         }
         vTaskDelay(10 / portTICK_PERIOD_MS);

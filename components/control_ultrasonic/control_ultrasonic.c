@@ -39,7 +39,8 @@ void vTaskUltrasonic(void *pvParameters) {
         } 
         if (res == ESP_OK) {
             info_sensor.measure = distance;
-            printf("Time: %d\n", time);
+            info_sensor.time    = time;
+
             // printf("Distance Sent: %d", info_sensor.measure);
             xQueueSend( xQueueSensor, &info_sensor, 10);
             vTaskDelay( 490 / portTICK_PERIOD_MS );
