@@ -44,6 +44,7 @@ typedef struct {
 
 typedef struct {
     int measure;
+    int time;
 } info_sensor_t;
 
 extern info_led_t info_led;
