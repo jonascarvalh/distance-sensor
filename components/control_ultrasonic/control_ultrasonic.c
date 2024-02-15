@@ -2,7 +2,7 @@
 #include "../ultrasonic/ultrasonic.h"
 #include "../../config.h"
 
-#define MAX_DISTANCE_CM 250
+#define MAX_DISTANCE_CM 400
 #define TRIGGER_GPIO 26
 #define ECHO_GPIO 25
 
