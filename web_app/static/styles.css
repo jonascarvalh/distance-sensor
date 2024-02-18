@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.mid-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1 1 300px;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.top-section {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+.mid-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
