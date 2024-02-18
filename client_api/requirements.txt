@@ -1,0 +1,16 @@
+Flask==2.3.2
+paho-mqtt==1.6.1
+python-decouple==3.8
+Flask==2.3.2
+Flask-Jsonpify==1.5.0
+Flask-SQLAlchemy==3.1.1
+Flask-RESTful==0.3.10
+flask-marshmallow==1.2.0
+Flask-Cors==4.0.0
+marshmallow==3.20.2
+marshmallow-sqlalchemy==1.0.0
+pandas==2.2.0
+numpy==1.26.4
+matplotlib==3.8.3
+pyarrow==15.0.0
+requests==2.31.0

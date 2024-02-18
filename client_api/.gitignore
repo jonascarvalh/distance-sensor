@@ -1,0 +1,11 @@
+/__pycache__
+/.pytest_cache
+/venv
+/build
+
+.env
+config.h
+
+instance/
+utils/__pycache__
+api/__pycache__
